@@ -5,7 +5,7 @@ import (
 	"os"
 
 	"github.com/gin-gonic/gin"
-	"github.com/symball/hello_world_go/utils"
+	"github.com/joy-dx/go-hello-world/utils"
 )
 
 func setupRouter() *gin.Engine {
@@ -35,7 +35,10 @@ func setupRouter() *gin.Engine {
 
 func main() {
 	r := setupRouter()
-	port := ":" + os.Getenv("GOHW_PORT")
+	port, present := os.LookupEnv("GOHW_PORT")
+	if !present {
+		port = "8080"
+	}
 
 	if err := r.Run(port); err != nil {
 		log.Fatal(err)

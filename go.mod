@@ -1,4 +1,4 @@
-module github.com/symball/hello_world_go
+module github.com/joy-dx/go-hello-world
 
 go 1.23.1
 
