@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 
@@ -39,8 +40,7 @@ func main() {
 	if !present {
 		port = "8080"
 	}
-
-	if err := r.Run(port); err != nil {
+	if err := r.Run(fmt.Sprintf(":%s", port)); err != nil {
 		log.Fatal(err)
 	}
 }
